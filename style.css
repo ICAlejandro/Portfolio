@@ -1,3 +1,16 @@
+.middle-strip {
+    position: fixed;                /* absolute relative to body/document */
+    top: 0;                            /* start at the top of the page */
+    left: 50%;                         /* center horizontally */
+    transform: translateX(-50%);
+    width: 47%;                         
+    height: 100%;                       /* temporary, we’ll use JS to adjust dynamically */
+    background-color: rgba(16, 13, 27, 0.3); /* subtle highlight */
+    pointer-events: none;              /* allow clicks through */
+    z-index: -1;                        /* behind content */
+}
+
+
 /* Default Superior Theme */
 body {
 	font-family: Trebuchet MS, sans-serif;
@@ -5,13 +18,13 @@ body {
 	color: #ffffff;
 	margin: 0;
 	padding: 5px;
+	z-index: 9999;
 }
 /* if iever i want to move everything at some point */
 body > *:not(#side-img) {
     position: relative;
     left: 0px; /* move everything left */
 }
-
 
 header {
 	text-align: center;
@@ -63,7 +76,7 @@ body.dark {
     transform: translateY(-50%); /* vertical centering */
     opacity: 1;             /* fully visible */
     pointer-events: none;   /* clicks pass through */
-    z-index: -1;          /* stay on top */
+    z-index: -2;          /* stay on top */
 }
 
 /* navigation shortcuts */
@@ -85,6 +98,7 @@ body.dark {
 /* Achievement edsign */
 #achievements {
     text-align: center;
+	position: relative;
 }
 #achievements ul {
     list-style: none;

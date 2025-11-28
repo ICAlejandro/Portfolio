@@ -12,10 +12,16 @@ window.addEventListener('scroll', () => {
     const scrollY = window.scrollY;
     sideImg.style.top = `${80 + scrollY * speedFactor}vh`; // use vh for relative positioning
 });
-const speedFactor2 = 0.0009;
-const sideImg2 = document.getElementById('side-img2');
 
-window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
-    sideImg.style.top = `${80 + scrollY * speedFactor}vh`; // use vh for relative positioning
-});
+// fully ai
+function adjustMiddleStrip() {
+    const strip = document.querySelector('.middle-strip');
+    const bodyHeight = document.body.scrollHeight; // full document height
+    strip.style.height = bodyHeight + 'px';
+}
+
+// adjust on load
+window.addEventListener('load', adjustMiddleStrip);
+
+// adjust on resize (optional, in case content changes)
+window.addEventListener('resize', adjustMiddleStrip);

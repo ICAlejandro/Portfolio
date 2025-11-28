@@ -12,3 +12,10 @@ window.addEventListener('scroll', () => {
     const scrollY = window.scrollY;
     sideImg.style.top = `${80 + scrollY * speedFactor}vh`; // use vh for relative positioning
 });
+const speedFactor2 = 0.0009;
+const sideImg2 = document.getElementById('side-img2');
+
+window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    sideImg.style.top = `${80 + scrollY * speedFactor}vh`; // use vh for relative positioning
+});

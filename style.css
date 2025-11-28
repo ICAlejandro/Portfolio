@@ -35,6 +35,21 @@ body.dark {
 	color: #333;
 }
 
+/* Decor image on the right */
+#side-img {
+    position: fixed;        /* stays visible on screen */
+    top: 80%;               /* vertical center */
+    left: 750px;           /* keep your original horizontal position */
+	width: 1100px;
+    transform: translateY(-50%); /* vertical centering */
+    opacity: 1;             /* fully visible */
+    pointer-events: none;   /* clicks pass through */
+    z-index: -1;          /* stay on top */
+}
+
+
+
+
 /* navigation shortcuts */
 #navigation {
     text-align: center;

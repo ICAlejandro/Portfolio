@@ -1,4 +1,4 @@
-/* Default Light Theme */
+/* Default Superior Theme */
 body {
 	font-family: Trebuchet MS, sans-serif;
 	background-color: #001a33;
@@ -6,6 +6,12 @@ body {
 	margin: 0;
 	padding: 5px;
 }
+/* if iever i want to move everything at some point */
+body > *:not(#side-img) {
+    position: relative;
+    left: 0px; /* move everything left */
+}
+
 
 header {
 	text-align: center;
@@ -15,6 +21,13 @@ header {
 #profile-img {
 	width: 150px;
 	border-radius: 50%;
+}
+
+#break-img {
+	width: 550px;
+	border-radius: 10px;
+	margin: 0 auto;
+	display: block;
 }
 
 button {
@@ -47,25 +60,19 @@ body.dark {
     z-index: -1;          /* stay on top */
 }
 
-
-
-
 /* navigation shortcuts */
 #navigation {
     text-align: center;
 }
-
 #navigation ul {
     list-style: none;
     padding: 0;
 }
-
-#achievements a {
+#navigation a {
 	text-decoration: none; /* remove underline cuz ug */
     color: #0066cc;
 }
-
-#achievements a:hover {
+#navigation a:hover {
     color: #0066cc; /* color on hover same cuz its ugly if it changes*/
 }
 
@@ -73,12 +80,10 @@ body.dark {
 #achievements {
     text-align: center;
 }
-
 #achievements ul {
     list-style: none;
     padding: 0;
 }
-
 #achievements li {
     margin-bottom: 20px;
 }
@@ -86,21 +91,17 @@ body.dark {
 #achievements li img {/* this is ai assisted */
     border: none;
     border-radius: 10px;
-    border: none;
-    border-radius: 10px;
-    /* box-shadow: 0 0 8px rgba(0, 221, 255, 0.8);  */
+    /* box-shadow: 2px 2px 2px rgba(255, 255, 255, 0.8);  */
 }
 
 /* Certification desfn */
 #certifications {
     text-align: center;
 }
-
 #certifications ul {
     list-style: none;
     padding: 0;
 }
-
 #certifications li {
     margin-bottom: 20px;
 }
@@ -109,12 +110,10 @@ body.dark {
 #projects {
     text-align: center;
 }
-
 #projects ul {
     list-style: none;
     padding: 0;
 }
-
 #projects li {
     margin-bottom: 20px;
 }
@@ -124,8 +123,14 @@ body.dark {
 	text-decoration: none; /* remove underline cuz ug */
     color: #0066cc;
 }
-
 #achievements a:hover {
+    color: #0066cc; /* color on hover same cuz its ugly if it changes*/
+}
+#certifications a {
+	text-decoration: none; /* remove underline cuz ug */
+    color: #0066cc;
+}
+#certifications a:hover {
     color: #0066cc; /* color on hover same cuz its ugly if it changes*/
 }
 

@@ -29,6 +29,12 @@ header {
 	margin: 0 auto;
 	display: block;
 }
+#end-gif {
+	width: 650px;
+	border-radius: 10px;
+	margin: 0 auto;
+	display: block;
+}
 
 button {
 	padding: 10px 20px;

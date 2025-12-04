@@ -50,7 +50,7 @@ header {
 #side-img {
     position: fixed;
     top: 80%;
-    left: 50%;  /* change to percentage when i have time 770px original*/
+    left: 50%;
     width: 950px;
     transform: translateY(-50%);
     opacity: 1;
@@ -61,13 +61,13 @@ header {
 /* just other images to fill the website*/
 #break-img,
 #end-gif {
-    width: 650px;
+    width: 44.5%;
     border-radius: 10px;
     margin: 0 auto;
     display: block;
 }
 
-/* button from sirs reference */
+/* button from template/reference */
 button {
     padding: 10px 20px;
     margin-top: 10px;
@@ -85,7 +85,7 @@ body.dark button {
     color: #fff;
 }
 
-/* ==========================================navigation shortcuts */
+/* ==========================================navigation left side shortcuts */
 .side-bar {
     position: fixed;       
     top: 8%;             
@@ -94,11 +94,12 @@ body.dark button {
     flex-direction: column;
     gap: 18px;             
     z-index: 1000;
+    width: 20%;           /* scale with viewport width */
 }
 
 .side-bar a img {
-    width: 40px;           
-    height: 40px;
+    width: 20%;           
+    height: 20%;
     cursor: pointer;
     margin-right: 5px;
     border-radius: 5px;
@@ -107,7 +108,7 @@ body.dark button {
 .side-bar a {
     display: flex;
     align-items: center;   /* vertical center */
-    gap: 5px;             
+    gap: 1.5%;             
     text-decoration: none; 
     color: inherit;
 }
@@ -164,39 +165,43 @@ body.dark #projects a {
     position: relative;
 }
 
-#navigation li:not(:last-child)::after {
+#navigation li:not(:last-child)::after {/*AI assisted*/
     content: "|";            
     margin-left: 10px;       
     color: #0066cc;          
 }
 
-/* ==========================================achievement/ past work shi */
+/* ==========================================achievement (1 column limit cuz looks cooler) */
 .achieve-box,
-#achievements,
-#projects {
+#achievements {
     text-align: center;
 }
 
 .achieve-box ul,
-#achievements ul,
-#projects ul {
+#achievements ul {
+    display: grid;
+    grid-template-columns: 1fr; /* force single column */
+    justify-content: center;
     list-style: none;
     padding: 0;
+    margin: 0 auto;
+    max-width: 42%; /* width of grid */
 }
 
 .achieve-box li,
-#achievements li,
-#projects li {
-    margin-bottom: 20px;
+#achievements li {
+    text-align: center;
 }
 
 .achieve-box li img,
-#achievements li img,
-#projects li img {
+#achievements li img {
+    width: 100%;
+    max-width: 100%; 
+    height: auto;
     border-radius: 10px;
 }
 
-/* ==========================================certificaion shi */
+/* ==========================================certification */
 .cert-box {
     text-align: center;           
 }
@@ -211,15 +216,15 @@ body.dark .cert-box h2 {
     color: #333;
 }
 
-.cert-box ul { /* cert format/ the grid format*/
+.cert-box ul { 
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
-    gap: 0px;                              /* the stuff already has borders so this isnt really necesary but jsut a reminder */
+    gap: 0px;
     justify-content: center;                  
     list-style: none;
     padding: 0;
     margin: 0 auto;
-    max-width: 45%;                       
+    max-width: 43%;                       
     width: 90%;                              
 }
 
@@ -231,14 +236,16 @@ body.dark .cert-box h2 {
 }
 
 .cert-box li img {
-    width: 200px;                 /* image size and keep align with the comment below */
+    width: 100%;
+    max-width: 200px;
     height: auto;
     border-radius: 10px;
 }
 
 .cert-box li a {
     display: block;
-    width: 200px;                 /* always align this with .cert-box li img/ this is the text width fyi */
+    width: 100%;
+    max-width: 200px;
     text-align: center;
     text-decoration: none;
     color: #0066cc;
@@ -252,4 +259,31 @@ body.dark .cert-box li a {
 
 .cert-box li a:hover {
     color: #0066cc;
+}
+
+/* ==========================================projects shi */
+#projects {
+    text-align: center;
+}
+
+#projects ul {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 20px;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+#projects li {
+    text-align: center;
+}
+
+#projects li img {
+    width: 100%;
+    min-width: 600px;
+    height: auto;
+    border-radius: 10px;
 }

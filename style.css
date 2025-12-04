@@ -73,19 +73,6 @@ header {
     display: block;
 }
 
-/* button from template/reference */
-button {
-    padding: 10px 20px;
-    margin-top: 10px;
-    cursor: pointer;
-    background-color: #0066cc;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.3s, color 0.3s;
-}
-
 body.dark button {
     background-color: #004999;
     color: #fff;
@@ -94,17 +81,19 @@ body.dark button {
 /* ==========================================navigation left side shortcuts */
 .side-bar {
     position: fixed;       
-    top: 8%;             
+    top: 5%;             
     left: 13%;            
     display: flex;
     flex-direction: column;
     gap: 18px;             
     z-index: 1000;
-    width: 20%;           
+    width: 20%;     
+    padding-right: 20px; /* keep space from middle-strip */
+    box-sizing: border-box;
 }
 
 .side-bar a img {
-    width: 18%;           
+    width: 18%;
     height: 18%;
     cursor: pointer;
     margin-right: 5px;
@@ -113,10 +102,40 @@ body.dark button {
 
 .side-bar a {
     display: flex;
-    align-items: center;   /* vertical center */
+    align-items: center;   
     gap: 1.5%;             
     text-decoration: none; 
     color: inherit;
+    padding-right: 10px; 
+    max-width: 70%;  
+}
+
+.side-bar img[src$="fake-ad1.gif"] { /*AI assisted*/
+    width: 100%;       
+    max-width: 70%;  
+    height: auto;      
+    border-radius: 5px;
+    margin-top: 25%;
+}
+
+button#theme-toggle { /* button inside sidebar */
+    margin-top: 0;
+    width: 100%;          
+    max-width: 70%;     
+    height: 35px;
+    cursor: pointer;
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+    padding-right: 10px; /* spacing to avoid middle strip */
+    margin-bottom: 10%;
+}
+
+button#theme-toggle:hover {
+    transform: scale(1.1);
 }
 
 body.dark .side-bar a {
@@ -124,18 +143,18 @@ body.dark .side-bar a {
 }
 
 /* ==========================================socials now */
-#navigation,
+#socials,
 #back {
     text-align: center;
 }
 
-#navigation ul,
+#socials ul,
 #back ul {
     list-style: none;
     padding: 0;
 }
 
-#navigation a,
+#socials a,
 #back a,
 #achievements a,
 #projects a {
@@ -144,21 +163,21 @@ body.dark .side-bar a {
     transition: color 0.3s;
 }
 
-body.dark #navigation a,
+body.dark #socials a,
 body.dark #back a,
 body.dark #achievements a,
 body.dark #projects a {
     color: #004999;
 }
 
-#navigation a:hover,
+#socials a:hover,
 #back a:hover,
 #achievements a:hover,
 #projects a:hover {
     color: #0066cc;
 }
 
-#navigation ul { /*clean this up in the future*/
+#socials ul { /*clean this up in the future*/
     list-style: none;
     padding: 0;
     display: flex;
@@ -166,12 +185,12 @@ body.dark #projects a {
     gap: 10px;               
 }
 
-#navigation li {
+#socials li {
     display: inline;         
     position: relative;
 }
 
-#navigation li:not(:last-child)::after {/*AI assisted*/
+#socials li:not(:last-child)::after {/*AI assisted*/
     content: "|";            
     margin-left: 10px;       
     color: #0066cc;          
@@ -186,7 +205,7 @@ body.dark #projects a {
 .achieve-box ul,
 #achievements ul {
     display: grid;
-    grid-template-columns: 1fr; /* force single column */
+    grid-template-columns: 1fr; /* force single column  so it always looks clean*/
     justify-content: center;
     list-style: none;
     padding: 0;
@@ -266,7 +285,7 @@ body.dark .cert-box li a {
     color: #0066cc;
 }
 
-/* ==========================================projects shi */
+/* ==========================================projects */
 .proj-box,
 #projects {
     text-align: center;

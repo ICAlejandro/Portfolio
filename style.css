@@ -104,8 +104,8 @@ body.dark button {
 }
 
 .side-bar a img {
-    width: 20%;           
-    height: 20%;
+    width: 18%;           
+    height: 18%;
     cursor: pointer;
     margin-right: 5px;
     border-radius: 5px;
@@ -123,7 +123,7 @@ body.dark .side-bar a {
     color: #333333;
 }
 
-/* ==========================================main navigation */
+/* ==========================================socials now */
 #navigation,
 #back {
     text-align: center;
@@ -267,28 +267,32 @@ body.dark .cert-box li a {
 }
 
 /* ==========================================projects shi */
+.proj-box,
 #projects {
     text-align: center;
 }
 
+.proj-box ul,
 #projects ul {
     display: grid;
-    grid-template-columns: 1fr; 
-    gap: 20px;
+    grid-template-columns: 1fr; /* force single column */
     justify-content: center;
     list-style: none;
     padding: 0;
     margin: 0 auto;
-    max-width: 600px;
+    max-width: 42%; /* width of grid */
 }
 
+.proj-box li,
 #projects li {
     text-align: center;
+    font-size: 17px;
 }
 
+.proj-box li img,
 #projects li img {
     width: 100%;
-    min-width: 600px;
+    max-width: 100%; 
     height: auto;
     border-radius: 10px;
 }

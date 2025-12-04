@@ -1,172 +1,202 @@
+/* the transparent thing in the middle so it doesnt look plain (AI assisted) */
 .middle-strip {
-    position: fixed;                /* absolute relative to body/document */
-    top: 0;                            /* start at the top of the page */
-    left: 50%;                         /* center horizontally */
+    position: fixed;
+    top: 0;
+    left: 50%;
     transform: translateX(-50%);
-    width: 47%;                         
-    height: 100%;                       /* temporary, we’ll use JS to adjust dynamically */
-    background-color: rgba(16, 13, 27, 0.3); /* subtle highlight */
-    pointer-events: none;              /* allow clicks through */
-    z-index: -1;                        
+    width: 45%;
+    height: 100%;
+    background-color: rgba(16, 13, 27, 0.3);
+    pointer-events: none;
+    z-index: -1;
 }
 
-
-/* Default Superior Theme */
+/* ==========================================body and general themes //also look for potential new font */
 body {
-	font-family: Trebuchet MS, sans-serif;
-	background-color: #041d34;
-	color: #ffffff;
-	margin: 0;
-	padding: 5px;
-	z-index: 9999;
+    font-family: Trebuchet MS, sans-serif;
+    background-color: #041d34;
+    color: #ffffff;
+    margin: 0;
+    padding: 5px;
+    z-index: 9999; /*so its always in front*/
 }
-/* if iever i want to move everything at some point */
+
 body > *:not(#side-img) {
     position: relative;
-    left: 0px; /* move everything left */
+    left: 0;
 }
 
+body.dark {/* didnt rename just switched the content so default is dark mode*/
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+#subtxt {
+    margin-top: -15px;
+    font-weight: 100;     
+    font-size: 14px;
+}
+
+/* header stuff */
 header {
-	text-align: center;
-	margin-bottom: 30px;
+    text-align: center;
+    margin-bottom: 30px;
 }
 
 #profile-img {
-	width: 150px;
-	border-radius: 50%;
+    width: 150px;
+    border-radius: 50%;
 }
 
-#break-img {
-	width: 650px;
-	border-radius: 10px;
-	margin: 0 auto;
-	display: block;
+/* the side image (AI assisted)*/
+#side-img {
+    position: fixed;
+    top: 80%;
+    left: 50%;  /* change to percentage when i have time 770px original*/
+    width: 950px;
+    transform: translateY(-50%);
+    opacity: 1;
+    pointer-events: none;
+    z-index: -2;
 }
+
+/* jsut other images to fill the website*/
+#break-img,
 #end-gif {
-	width: 650px;
-	border-radius: 10px;
-	margin: 0 auto;
-	display: block;
+    width: 650px;
+    border-radius: 10px;
+    margin: 0 auto;
+    display: block;
 }
 
+/* button from sirs reference */
 button {
-	padding: 10px 20px;
-	margin-top: 10px;
-	cursor: pointer;
-	background-color: #0066cc;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    background-color: #0066cc;
     color: white;
     border: none;
     border-radius: 5px;
     font-weight: bold;
 }
 
-/* Cursed theme (Light mode) ..why?*/
-body.dark {
-	
-	background-color: #f5f5f5;
-	color: #333;
-}
-
-/* Decor image on the right */
-#side-img {
-    position: fixed;        /* stays visible on screen */
-    top: 80%;               /* vertical center */
-    left: 770px;           /* keep your original horizontal position */
-	width: 950px;
-    transform: translateY(-50%); /* vertical centering */
-    opacity: 1;             /* fully visible */
-    pointer-events: none;   /* clicks pass through */
-    z-index: -2;          /* stay on top */
-}
-
-/* navigation shortcuts */
-#navigation {
-    text-align: center;
-}
-#navigation ul {
-    list-style: none;
-    padding: 0;
-}
-#navigation a {
-	text-decoration: none; /* remove underline cuz ug */
-    color: #0066cc;
-}
-#navigation a:hover {
-    color: #0066cc; /* color on hover same cuz its ugly if it changes*/
-}
+/* ==========================================navigation shortcuts */
+#navigation,
 #back {
-	text-align: center;
-	list-style: none;
-	text-decoration: none; /* remove underline cuz ug */
-}
-#back a {
-	color: #0066cc;
+    text-align: center;
 }
 
-/* Achievement edsign */
-#achievements {
-    text-align: center;
-	position: relative;
-}
-#achievements ul {
+#navigation ul,
+#back ul {
     list-style: none;
     padding: 0;
 }
-#achievements li {
-    margin-bottom: 20px;
-}
 
-#achievements li img {/* this is ai assisted */
-    border: none;
-    border-radius: 10px;
-    /* box-shadow: 2px 2px 2px rgba(255, 255, 255, 0.8);  */
-}
-
-/* Certification design */
-#certifications {
-    text-align: center;
-}
-#certifications ul {
-    list-style: none;
-    padding: 0;
-}
-#certifications li {
-    margin-bottom: 20px;
-}
-
-/* Project design */
-#projects {
-    text-align: center;
-}
-#projects ul {
-    list-style: none;
-    padding: 0;
-}
-#projects li {
-    margin-bottom: 20px;
-}
-
-/* Link design */
-#achievements a {
-	text-decoration: none;
-    color: #0066cc;
-}
-#achievements a:hover {
-    color: #0066cc;
-}
-#certifications a {
-	text-decoration: none;
-    color: #0066cc;
-}
-#certifications a:hover {
-    color: #0066cc;
-}
+#navigation a,
+#back a,
+#achievements a,
 #projects a {
-	text-decoration: none;
+    text-decoration: none;
     color: #0066cc;
 }
+
+#navigation a:hover,
+#back a:hover,
+#achievements a:hover,
 #projects a:hover {
     color: #0066cc;
 }
 
+#navigation ul { /*clean this up in the future*/
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center; 
+    gap: 10px;               
+}
 
+#navigation li {
+    display: inline;         
+    position: relative;
+}
+
+#navigation li:not(:last-child)::after {
+    content: "|";            
+    margin-left: 10px;       
+    color: #0066cc;          
+}
+
+/* ==========================================achievement/ past work shi */
+.achieve-box,
+#achievements,
+#projects {
+    text-align: center;
+}
+
+.achieve-box ul,
+#achievements ul,
+#projects ul {
+    list-style: none;
+    padding: 0;
+}
+
+.achieve-box li,
+#achievements li,
+#projects li {
+    margin-bottom: 20px;
+}
+
+.achieve-box li img,
+#achievements li img,
+#projects li img {
+    border-radius: 10px;
+}
+
+/* ==========================================certificaion shi */
+.cert-box {
+    text-align: center;           
+}
+
+.cert-box h2 {
+    margin-bottom: 20px;
+    font-size: 2em;               
+}
+
+.cert-box ul { /* cert format/ the grid format*/
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    gap: 0px;                              /* the stuff already have borders so this isnt really necesary but jsut a reminder */
+    justify-content: center;                  
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 45%;                       
+    width: 90%;                              
+}
+
+.cert-box li {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;          
+}
+
+.cert-box li img {
+    width: 200px;                 /* image size and keep align with the comment below */
+    height: auto;
+    border-radius: 10px;
+}
+
+.cert-box li a {
+    display: block;
+    width: 200px;                 /* always align this with .cert-box li img/ this is the text width fyi */
+    text-align: center;
+    text-decoration: none;
+    color: #0066cc;
+    margin-top: 5px;
+}
+
+.cert-box li a:hover {
+    color: #0066cc;
+}

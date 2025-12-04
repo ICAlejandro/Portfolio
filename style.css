@@ -59,8 +59,14 @@ header {
 }
 
 /* just other images to fill the website*/
-#break-img,
-#end-gif {
+#break-img {
+    width: 44.7%;
+    /* border-radius: 10px; */
+    margin: 0 auto;
+    display: block;
+    padding-top: 50px;
+}
+#end-gif{
     width: 44.5%;
     border-radius: 10px;
     margin: 0 auto;
@@ -94,7 +100,7 @@ body.dark button {
     flex-direction: column;
     gap: 18px;             
     z-index: 1000;
-    width: 20%;           /* scale with viewport width */
+    width: 20%;           
 }
 
 .side-bar a img {
@@ -208,7 +214,6 @@ body.dark #projects a {
 
 .cert-box h2 {
     margin-bottom: 20px;
-    font-size: 2em;               
     transition: color 0.3s;
 }
 

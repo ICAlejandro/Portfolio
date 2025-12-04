@@ -19,11 +19,7 @@ body {
     margin: 0;
     padding: 5px;
     z-index: 9999; /*so its always in front*/
-}
-
-body > *:not(#side-img) {
-    position: relative;
-    left: 0;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 body.dark {/* didnt rename just switched the content so default is dark mode*/
@@ -35,6 +31,7 @@ body.dark {/* didnt rename just switched the content so default is dark mode*/
     margin-top: -15px;
     font-weight: 100;     
     font-size: 14px;
+    transition: color 0.3s;
 }
 
 /* header stuff */
@@ -43,6 +40,7 @@ header {
     margin-bottom: 30px;
 }
 
+/* main profile image */
 #profile-img {
     width: 150px;
     border-radius: 50%;
@@ -60,7 +58,7 @@ header {
     z-index: -2;
 }
 
-/* jsut other images to fill the website*/
+/* just other images to fill the website*/
 #break-img,
 #end-gif {
     width: 650px;
@@ -79,9 +77,46 @@ button {
     border: none;
     border-radius: 5px;
     font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark button {
+    background-color: #004999;
+    color: #fff;
 }
 
 /* ==========================================navigation shortcuts */
+.side-bar {
+    position: fixed;       
+    top: 8%;             
+    left: 13%;            
+    display: flex;
+    flex-direction: column;
+    gap: 18px;             
+    z-index: 1000;
+}
+
+.side-bar a img {
+    width: 40px;           
+    height: 40px;
+    cursor: pointer;
+    margin-right: 5px;
+    border-radius: 5px;
+}
+
+.side-bar a {
+    display: flex;
+    align-items: center;   /* vertical center */
+    gap: 5px;             
+    text-decoration: none; 
+    color: inherit;
+}
+
+body.dark .side-bar a {
+    color: #333333;
+}
+
+/* ==========================================main navigation */
 #navigation,
 #back {
     text-align: center;
@@ -99,6 +134,14 @@ button {
 #projects a {
     text-decoration: none;
     color: #0066cc;
+    transition: color 0.3s;
+}
+
+body.dark #navigation a,
+body.dark #back a,
+body.dark #achievements a,
+body.dark #projects a {
+    color: #004999;
 }
 
 #navigation a:hover,
@@ -161,12 +204,17 @@ button {
 .cert-box h2 {
     margin-bottom: 20px;
     font-size: 2em;               
+    transition: color 0.3s;
+}
+
+body.dark .cert-box h2 {
+    color: #333;
 }
 
 .cert-box ul { /* cert format/ the grid format*/
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
-    gap: 0px;                              /* the stuff already have borders so this isnt really necesary but jsut a reminder */
+    gap: 0px;                              /* the stuff already has borders so this isnt really necesary but jsut a reminder */
     justify-content: center;                  
     list-style: none;
     padding: 0;
@@ -195,6 +243,11 @@ button {
     text-decoration: none;
     color: #0066cc;
     margin-top: 5px;
+    transition: color 0.3s;
+}
+
+body.dark .cert-box li a {
+    color: #004999;
 }
 
 .cert-box li a:hover {

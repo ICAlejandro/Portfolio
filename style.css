@@ -110,8 +110,9 @@ body.dark button {
     gap: 1.5%;             
     text-decoration: none; 
     color: inherit;
-    padding-right: 10px; 
+    padding-right: 10%; 
     max-width: 70%;  
+    padding-left: 5%;
 }
 
 .side-bar img[src$="fake-ad1.gif"] { /*AI assisted*/

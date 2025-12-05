@@ -1,3 +1,97 @@
+/* ==========================================mobile shi ========================================================================= */
+@media screen and (max-width: 768px) {
+
+    /* Adjust body padding */
+    body {
+        padding: 2px;
+    }
+
+    /* Sidebar adjustments */
+    .side-bar {
+        left: 2%; /* move sidebar closer to edge */
+        width: 30%;
+        gap: 12px;
+    }
+
+    .side-bar a img {
+        width: 25%;
+        height: auto;
+    }
+
+    button#theme-toggle {
+        max-width: 90%;
+        font-size: 14px;
+    }
+
+    /* Middle strip less intrusive */
+    .middle-strip {
+        width: 70%;
+    }
+
+    /* Header adjustments */
+    #profile-img {
+        width: 100px;
+    }
+
+    h1#name {
+        font-size: 20px;
+    }
+
+    #course-year {
+        font-size: 14px;
+    }
+
+    /* Side image hidden on small screens */
+    #side-img {
+        display: none;
+    }
+
+    /* Social box */
+    .soc-box {
+        width: 80%;
+        max-width: 90%;
+    }
+
+    #socials ul {
+        gap: 0.5rem;
+        flex-direction: column;
+    }
+
+    #socials li:not(:last-child)::after {
+        content: "";
+    }
+
+    /* Achievements & Projects & Certs - full width */
+    .achieve-box ul,
+    #achievements ul,
+    .proj-box ul,
+    #projects ul,
+    .cert-box ul {
+        max-width: 95%;
+        grid-template-columns: 1fr; 
+    }
+
+    .achieve-box li img,
+    .proj-box li img,
+    .cert-box li img {
+        max-width: 100%;
+    }
+
+    /* Project boxes */
+    .gh-proj,
+    .othergh-proj,
+    .foley-proj,
+    .anim-proj {
+        padding: 2%;
+    }
+
+    /* Break images & end gif */
+    #break-img,
+    #end-gif {
+        width: 90%;
+    }
+}
+
 /* the transparent thing in the middle so it doesnt look plain (AI assisted) */
 .middle-strip {
     position: fixed;
@@ -303,7 +397,7 @@ body.dark .cert-box li a {
     background-color: rgba(20, 15, 37, 0.3); 
     padding: 1%;
     border-radius: 10px;
-    z-index: -997; /* background is behind content */
+    z-index: -997;
 }
 
 .proj-box,

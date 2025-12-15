@@ -4,12 +4,13 @@ IT103L Module 1 FA1 - Coded Course Portfolio by Ian CJ A. Alejandro
 To do:
 <ul>
   <p>(high priority)</p>
-  <li>update/finish navigation icons</li>
+  <li>footer fix</li>
   <li>better mobile version</li>
 </ul>
 
 <ul>
   <p>(low priority)</p>
+  <li>update/finish navigation icons</li>
   <li>finish "fake ad"</li>
   <li>finish "closing gif"</li>
   <li></li>

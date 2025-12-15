@@ -20,8 +20,17 @@ function adjustMiddleStrip() {
     strip.style.height = bodyHeight + 'px';
 }
 
-// adjust on load
+// formatting
 window.addEventListener('load', adjustMiddleStrip);
-
-// adjust on resize (optional, in case content changes)
 window.addEventListener('resize', adjustMiddleStrip);
+
+// fa3 task thiing
+const welcomeOverlay = document.getElementById('welcome-overlay');
+const enterBtn = document.getElementById('enter-btn');
+const userNameInput = document.getElementById('user-name');
+
+enterBtn.addEventListener('click', () => {
+    const name = userNameInput.value.trim() || "Guest"; 
+    alert(`Welcome, ${name}!`); 
+    welcomeOverlay.style.display = 'none';
+});

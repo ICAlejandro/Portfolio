@@ -413,3 +413,42 @@ footer {
         grid-template-columns: 1fr; 
     }
 }
+/* ================= PROJECT CARDS ================= */
+
+.proj-box ul{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+max-width:900px;
+margin:auto;
+padding:0;
+list-style:none;
+}
+
+.project-card{
+background:rgba(255,255,255,0.05);
+padding:15px;
+border-radius:12px;
+transition:transform 0.2s, box-shadow 0.2s;
+}
+
+.project-card:hover{
+transform:translateY(-5px);
+box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+
+.project-card h3{
+font-size:16px;
+margin-bottom:10px;
+}
+
+.project-card img{
+width:100%;
+border-radius:8px;
+cursor:pointer;
+transition:transform 0.2s;
+}
+
+.project-card img:hover{
+transform:scale(1.05);
+}

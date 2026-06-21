@@ -65,7 +65,7 @@ body {
     margin: 0;
     padding: 5px;
     transition: background-color 0.3s, color 0.3s;
-    position: relative; /* Crucial for absolute positions inside js boundary code */
+    position: relative; 
 }
 
 body.dark {
@@ -132,7 +132,7 @@ body.dark button {
 .side-bar {
     position: fixed;       
     top: 5%;              
-    left: 13%;            
+    left: 20px; /* Kept aligned to the left edge */            
     display: flex;
     flex-direction: column;
     gap: 18px;             
@@ -153,12 +153,19 @@ body.dark button {
 .side-bar a {
     display: flex;
     align-items: center;   
-    gap: 1.5%;             
+    gap: 1.5%; /* Restored original spacing values */            
     text-decoration: none; 
     color: inherit;
     padding-right: 10%; 
     max-width: 70%;  
     padding-left: 5%;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border-radius: 5px;
+}
+
+.side-bar a:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .side-bar img[src$="fake-ad1.gif"] {
@@ -180,9 +187,15 @@ button#theme-toggle {
     border: none;
     border-radius: 5px;
     font-weight: bold;
-    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+    transition: background-color 0.3s, color 0.3s, transform 0.2s, box-shadow 0.2s;
     padding-right: 10px; 
     margin-bottom: 10%;
+}
+
+button#theme-toggle:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    background-color: #0052a3;
 }
 
 body.dark .side-bar a,
@@ -191,15 +204,25 @@ body.dark .soc-box {
     border-color: #000000; 
 }
 
+body.dark .side-bar a:hover,
+body.dark button#theme-toggle:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
 /* ==========================================socials now ======================================================================================================*/
 .soc-box {
     text-align: center;
-    width: 30%;
-    max-width: 40%; 
-    min-width: 30%; 
+    width: 42%; /* Perfectly matches the column wrapper of all lower content grids */
     border: 1.5px solid rgb(255, 255, 255);
     border-radius: 5px;
-    margin: 0 auto;
+    margin: 0 auto; /* Centers the content cleanly in the middle */
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+body.dark .soc-box {
+    background: rgba(0, 0, 0, 0.05);
 }
 
 #socials,
@@ -212,7 +235,7 @@ body.dark .soc-box {
     list-style: none;
     padding: 0;
     display: flex;
-    justify-content: center; 
+    justify-content: center;   
     gap: 1rem; 
     flex-wrap: wrap; 
 }
@@ -267,6 +290,7 @@ body.dark #projects a {
     padding: 0;
     margin: 0 auto;
     max-width: 42%; 
+    gap: 25px; 
 }
 
 .achieve-box li,
@@ -299,13 +323,12 @@ body.dark .cert-box h2 {
 .cert-box ul { 
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
-    gap: 20px;
+    gap: 25px; 
     justify-content: center;                  
     list-style: none;
     padding: 0;
     margin: 0 auto;
-    max-width: 43%;                   
-    width: 90%;                               
+    max-width: 42%; /* Centered container matching achievements/projects widths */                  
 }
 
 .cert-box li {
@@ -366,13 +389,14 @@ body.dark .cert-box h2 {
     border-radius: 10px;
 }
 
-/* ===============================footer typ shi ============================================*/
+/* ===============================footer layout details ============================================*/
 footer {
     text-align: center;
     padding: 20px;
     background: #333;
     color: #fff;
     width: 100%;
+    box-sizing: border-box; /* Fixed issue: ensures padding doesn't overflow full width background layout */
     position: relative;
     z-index: 10;
     transition: background-color 0.3s, color 0.3s;
@@ -383,42 +407,43 @@ body.dark footer {
     color: #222;
 }
 
-/* ================= PROJECT CARDS ================= */
-.project-card {
+/* ================= UNIFIED PORTFOLIO CARD LAYOUT EFFECTS ================= */
+.portfolio-card {
     background: rgba(255, 255, 255, 0.05);
     padding: 15px;
     border-radius: 12px;
     transition: transform 0.2s, box-shadow 0.2s;
     position: relative;
     z-index: 10;
+    box-sizing: border-box;
 }
 
-body.dark .project-card {
+body.dark .portfolio-card {
     background: rgba(0, 0, 0, 0.05);
 }
 
-.project-card:hover {
+.portfolio-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
-.project-card h3 {
+.portfolio-card h3 {
     font-size: 16px;
     margin-bottom: 10px;
 }
 
-.project-card img {
+.portfolio-card img {
     width: 100%;
     border-radius: 8px;
     cursor: pointer;
     transition: transform 0.2s;
 }
 
-.project-card img:hover {
+.portfolio-card img:hover {
     transform: scale(1.02);
 }
 
-/* ==========================================mobile shi ========================================================================= */
+/* ==========================================mobile media breaks ========================================================================= */
 @media screen and (max-width: 768px) {
     .side-bar {
         position: relative !important;
@@ -426,6 +451,12 @@ body.dark .project-card {
         left: 2% !important;
         width: 30% !important;
         gap: 12px;
+    }
+
+    .side-bar a:hover,
+    button#theme-toggle:hover {
+        transform: none;
+        box-shadow: none;
     }
 
     .middle-strip {

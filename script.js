@@ -43,7 +43,7 @@ if (welcomeOverlay && enterBtn && userNameInput) {
     });
 }
 
-// New: Stop Sidebar from covering the Footer while keeping alignment intact
+// Stop Sidebar from covering the Footer while keeping alignment intact
 const sidebar = document.querySelector('.side-bar');
 const footer = document.getElementById('portfolio-footer');
 

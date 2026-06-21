@@ -4,7 +4,6 @@ IT103L Module 1 FA1 - Coded Course Portfolio by Ian CJ A. Alejandro
 To do:
 <ul>
   <p>(high priority)</p>
-  <li>footer fix</li>
   <li>better mobile version</li>
 </ul>
 

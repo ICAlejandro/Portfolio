@@ -135,7 +135,7 @@ body.dark button {
     left: 20px; /* Kept aligned to the left edge */            
     display: flex;
     flex-direction: column;
-    gap: 18px;             
+    gap: 8px; /* Compacted vertical layout gap from 18px */             
     z-index: 998;
     width: 20%;     
     padding-right: 20px; 
@@ -159,13 +159,16 @@ body.dark button {
     padding-right: 10%; 
     max-width: 70%;  
     padding-left: 5%;
+    padding-top: 4px; /* Shrank inner vertical padding for compact height */
+    padding-bottom: 4px;
     transition: transform 0.2s, box-shadow 0.2s;
     border-radius: 5px;
+    font-size: 14px; /* Tighter typography footprint */
 }
 
 .side-bar a:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transform: translateY(-1px); /* Lowered bounce effect */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .side-bar img[src$="fake-ad1.gif"] {
@@ -173,28 +176,29 @@ body.dark button {
     max-width: 70%;  
     height: auto;      
     border-radius: 5px;
-    margin-top: 25%;
+    margin-top: 15px; /* Scaled down static top tracking distance */
 }
 
 button#theme-toggle {
-    margin-top: 0;
+    margin-top: 8px; /* Tighter element pairing placement */
     width: 100%;          
     max-width: 70%;     
-    height: 35px;
+    height: 30px; /* Slimmer button thickness */
     cursor: pointer;
     background-color: #0066cc;
     color: white;
     border: none;
     border-radius: 5px;
     font-weight: bold;
+    font-size: 13px;
     transition: background-color 0.3s, color 0.3s, transform 0.2s, box-shadow 0.2s;
     padding-right: 10px; 
-    margin-bottom: 10%;
+    margin-bottom: 5%;
 }
 
 button#theme-toggle:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transform: translateY(-1px); /* Lowered bounce effect */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     background-color: #0052a3;
 }
 
@@ -206,7 +210,7 @@ body.dark .soc-box {
 
 body.dark .side-bar a:hover,
 body.dark button#theme-toggle:hover {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 /* ==========================================socials now ======================================================================================================*/
@@ -217,7 +221,7 @@ body.dark button#theme-toggle:hover {
     border-radius: 5px;
     margin: 0 auto; /* Centers the content cleanly in the middle */
     background: rgba(255, 255, 255, 0.05);
-    padding: 15px;
+    padding: 6px 15px; /* Shrank top and bottom padding to fix the overly tall border height */
     box-sizing: border-box;
 }
 
@@ -234,6 +238,7 @@ body.dark .soc-box {
 #back ul { 
     list-style: none;
     padding: 0;
+    margin: 0; /* Stripped default margins causing layout to stretch too high */
     display: flex;
     justify-content: center;   
     gap: 1rem; 
@@ -254,7 +259,8 @@ body.dark .soc-box {
 #socials a,
 #back a,
 #achievements a,
-#projects a {
+#projects a,
+.cert-box li a {
     text-decoration: none;
     color: #0066cc;
     transition: color 0.3s;
@@ -264,14 +270,16 @@ body.dark .soc-box {
 body.dark #socials a,
 body.dark #back a,
 body.dark #achievements a,
-body.dark #projects a {
+body.dark #projects a,
+body.dark .cert-box li a {
     color: #0052a3;
 }
 
 #socials a:hover,
 #back a:hover,
 #achievements a:hover,
-#projects a:hover {
+#projects a:hover,
+.cert-box li a:hover {
     color: #00a3ff;
 }
 
@@ -320,15 +328,21 @@ body.dark .cert-box h2 {
     color: #000000;
 }
 
+.cert-box .portfolio-card {
+    max-width: 42%;
+    margin: 0 auto;
+    padding: 20px; /* Adds internal safe-zone so items don't clip the outer card boundary */
+}
+
 .cert-box ul { 
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
-    gap: 25px; 
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); /* Auto-wraps long badge item grids neatly */
+    gap: 15px; 
     justify-content: center;                  
     list-style: none;
     padding: 0;
     margin: 0 auto;
-    max-width: 42%; /* Centered container matching achievements/projects widths */                  
+    width: 100%; /* Spans correctly within the parent container card framework */
 }
 
 .cert-box li {
@@ -336,24 +350,23 @@ body.dark .cert-box h2 {
     display: flex;
     flex-direction: column;
     align-items: center;          
+    font-size: 13px; 
 }
 
 .cert-box li img {
     width: 100%;
-    max-width: 200px;
+    max-width: 140px; 
     height: auto;
-    border-radius: 10px;
+    border-radius: 8px;
 }
 
 .cert-box li a {
     display: block;
     width: 100%;
-    max-width: 200px;
+    max-width: 140px;
     text-align: center;
     text-decoration: none;
-    color: #0066cc;
     margin-top: 5px;
-    transition: color 0.3s;
 }
 
 /* ==========================================projects ======================================================================================================*/
@@ -367,9 +380,9 @@ body.dark .cert-box h2 {
 .proj-box ul,
 #projects ul {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: 1fr; /* Changed to single column stack to fit inside 42% border width without compacting */
     gap: 25px;
-    max-width: 42%; 
+    max-width: 42%; /* Kept layout nested within the center column bounds */
     margin: 0 auto;
     padding: 0;
     list-style: none;
@@ -423,8 +436,8 @@ body.dark .portfolio-card {
 }
 
 .portfolio-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px); /* Lowered bounce effect */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .portfolio-card h3 {
@@ -437,10 +450,6 @@ body.dark .portfolio-card {
     border-radius: 8px;
     cursor: pointer;
     transition: transform 0.2s;
-}
-
-.portfolio-card img:hover {
-    transform: scale(1.02);
 }
 
 /* ==========================================mobile media breaks ========================================================================= */
@@ -465,6 +474,10 @@ body.dark .portfolio-card {
 
     .soc-box {
         width: 80%;
+    }
+
+    .cert-box .portfolio-card {
+        max-width: 95%;
     }
 
     .achieve-box ul,

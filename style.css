@@ -64,8 +64,8 @@ body {
     color: #ffffff;
     margin: 0;
     padding: 5px;
-    /* Removed z-index: 999; - this was blocking your project links */
     transition: background-color 0.3s, color 0.3s;
+    position: relative; /* Crucial for absolute positions inside js boundary code */
 }
 
 body.dark {
@@ -131,7 +131,7 @@ body.dark button {
 /* ==========================================navigation left side shortcuts ====================================================================================*/
 .side-bar {
     position: fixed;       
-    top: 5%;             
+    top: 5%;              
     left: 13%;            
     display: flex;
     flex-direction: column;
@@ -242,14 +242,14 @@ body.dark #socials a,
 body.dark #back a,
 body.dark #achievements a,
 body.dark #projects a {
-    color: #0066cc;
+    color: #0052a3;
 }
 
 #socials a:hover,
 #back a:hover,
 #achievements a:hover,
 #projects a:hover {
-    color: #0066cc;
+    color: #00a3ff;
 }
 
 /* ==========================================achievement========================================================================*/
@@ -299,7 +299,7 @@ body.dark .cert-box h2 {
 .cert-box ul { 
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
-    gap: 0px;
+    gap: 20px;
     justify-content: center;                  
     list-style: none;
     padding: 0;
@@ -334,17 +334,6 @@ body.dark .cert-box h2 {
 }
 
 /* ==========================================projects ======================================================================================================*/
-.gh-proj,
-.othergh-proj,
-.foley-proj,
-.anim-proj {
-    background-color: transparent; /* Removed low opacity box */
-    padding: 1%;
-    border-radius: 10px;
-    position: relative; /* Essential for z-index */
-    z-index: 10;        /* Moved from -997 to 10 to ensure clickability */
-}
-
 .proj-box,
 #projects {
     text-align: center;
@@ -355,12 +344,12 @@ body.dark .cert-box h2 {
 .proj-box ul,
 #projects ul {
     display: grid;
-    grid-template-columns: 1fr; 
-    justify-content: center;
-    list-style: none;
-    padding: 0;
-    margin: 0 auto;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
     max-width: 42%; 
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
 }
 
 .proj-box li,
@@ -386,13 +375,56 @@ footer {
     width: 100%;
     position: relative;
     z-index: 10;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark footer {
+    background: #e0e0e0;
+    color: #222;
+}
+
+/* ================= PROJECT CARDS ================= */
+.project-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 12px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    z-index: 10;
+}
+
+body.dark .project-card {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.project-card h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.project-card img {
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.project-card img:hover {
+    transform: scale(1.02);
 }
 
 /* ==========================================mobile shi ========================================================================= */
 @media screen and (max-width: 768px) {
     .side-bar {
-        left: 2%;
-        width: 30%;
+        position: relative !important;
+        top: 0 !important;
+        left: 2% !important;
+        width: 30% !important;
         gap: 12px;
     }
 
@@ -412,43 +444,4 @@ footer {
         max-width: 95%;
         grid-template-columns: 1fr; 
     }
-}
-/* ================= PROJECT CARDS ================= */
-
-.proj-box ul{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-max-width:900px;
-margin:auto;
-padding:0;
-list-style:none;
-}
-
-.project-card{
-background:rgba(255,255,255,0.05);
-padding:15px;
-border-radius:12px;
-transition:transform 0.2s, box-shadow 0.2s;
-}
-
-.project-card:hover{
-transform:translateY(-5px);
-box-shadow:0 10px 25px rgba(0,0,0,0.3);
-}
-
-.project-card h3{
-font-size:16px;
-margin-bottom:10px;
-}
-
-.project-card img{
-width:100%;
-border-radius:8px;
-cursor:pointer;
-transition:transform 0.2s;
-}
-
-.project-card img:hover{
-transform:scale(1.05);
 }

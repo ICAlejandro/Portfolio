@@ -6,6 +6,7 @@ https://icalejandro.github.io/Portfolio/
 To do:
 <ul>
   <p>(high priority)</p>
+  <li>~~footer fix~~</li>
   <li>better mobile version</li>
 </ul>
 

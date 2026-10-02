@@ -1,76 +1,49 @@
-/* fa3 task for any input*/
-#welcome-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(4, 29, 52, 0.95); /* dark transparent background */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    color: #fff;
-}
-
-#welcome-box {
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 40px;
-    border-radius: 15px;
-}
-
-#welcome-box input {
-    padding: 10px;
-    border-radius: 5px;
-    border: none;
-    margin-top: 10px;
-}
-
-#welcome-box button {
-    margin-top: 15px;
-    padding: 10px 20px;
-    border-radius: 5px;
-    border: none;
-    background-color: #0066cc;
-    color: #fff;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-#welcome-box button:hover {
-    background-color: #0052a3;
-}
-
-/* ============================================================================ */
-
-/* the transparent thing in the middle so it doesnt look plain (AI assisted) */
-.middle-strip {
-    position: fixed;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 45%;
-    height: 100%;
-    background-color: rgba(16, 13, 27, 0.3);
-    pointer-events: none; /* Allows clicks to pass through to content below */
-    z-index: -1; /* Moved to -1 so it stays behind content but stays visible */
-}
-
-/* ==========================================body and general themes========================================================*/
-body {
-    font-family: 'Trebuchet MS', sans-serif;
-    background-color: #041d34;
-    color: #ffffff;
-    margin: 0;
-    padding: 5px;
-    transition: background-color 0.3s, color 0.3s;
-    position: relative; 
+:root {
+    --bg: #041d34;
+    --text: #ffffff;
+    --link: #0066cc;
+    --link-hover: #00a3ff;
+    --accent: #0066cc;
+    --accent-hover: #0052a3;
+    --surface: rgba(255, 255, 255, 0.05);
+    --footer-bg: #333333;
+    --footer-text: #ffffff;
+    --col: 42%;
+    --pad-left: 5px;
 }
 
 body.dark {
-    background-color: #f5f5f5;
-    color: #000000;
+    --bg: #f5f5f5;
+    --text: #000000;
+    --link: #0052a3;
+    --surface: rgba(0, 0, 0, 0.05);
+    --footer-bg: #e0e0e0;
+    --footer-text: #222222;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    position: relative;
+    margin: 0;
+    padding: 5px 5px 5px var(--pad-left);
+    overflow-x: hidden;
+    font-family: 'Trebuchet MS', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+img {
+    max-width: 100%;
 }
 
 h2 {
@@ -79,283 +52,278 @@ h2 {
 
 #subtxt {
     margin-top: -15px;
-    font-weight: 100;    
     font-size: 13px;
-    transition: color 0.3s;
+    font-weight: 100;
 }
 
-/* header stuff */
-header {
+#welcome-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background-color: rgba(4, 29, 52, 0.95);
+    color: #ffffff;
+}
+
+#welcome-box {
+    max-width: 100%;
+    padding: 40px;
+    border-radius: 15px;
     text-align: center;
-    margin-bottom: 30px;
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
-/* main profile image */
+#welcome-box input {
+    max-width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+#welcome-box button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--accent);
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#welcome-box button:hover {
+    background-color: var(--accent-hover);
+}
+
+.middle-strip {
+    position: fixed;
+    top: 0;
+    left: calc(50% + (var(--pad-left) - 5px) / 2);
+    z-index: -1;
+    width: calc(var(--col) + 3%);
+    height: 100%;
+    transform: translateX(-50%);
+    background-color: rgba(16, 13, 27, 0.3);
+    pointer-events: none;
+}
+
+header {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
 #profile-img {
     width: 150px;
+    max-width: 40%;
     border-radius: 50%;
 }
 
-/* the side image (AI assisted)*/
 #side-img {
     position: fixed;
     top: 80%;
-    left: 50%;
-    width: 950px;
+    right: -10vw;
+    left: auto;
+    z-index: -2;
+    width: 55vw;
+    height: auto;
     transform: translateY(-50%);
-    opacity: 1;
     pointer-events: none;
-    z-index: -2; /* Ensure it stays behind everything */
 }
 
-/* just other images to fill the website*/
 #break-img {
-    width: 44.7%;
-    margin: 0 auto;
     display: block;
+    width: calc(var(--col) + 2.7%);
+    margin: 0 auto;
     padding-top: 50px;
 }
 
 #end-gif {
-    width: 10%;
-    border-radius: 10px;
-    margin: 0 auto;
     display: block;
+    width: clamp(64px, 10vw, 140px);
+    margin: 0 auto;
+    border-radius: 10px;
 }
 
-body.dark button {
-    background-color: #0066cc;
-    color: #fff;
-}
-
-/* ==========================================navigation left side shortcuts ====================================================================================*/
 .side-bar {
-    position: fixed;       
-    top: 5%;              
-    left: 12%; /* Shifted from 20px to 12% to bring it closer to the centered content */            
+    position: fixed;
+    top: 5%;
+    right: calc(50% + var(--col) / 2 + 20px);
+    z-index: 998;
     display: flex;
     flex-direction: column;
-    gap: 8px; /* Compacted vertical layout gap from 18px */             
-    z-index: 998;
-    width: 20%;     
-    padding-right: 20px; 
-    box-sizing: border-box;
+    align-items: flex-start;
+    gap: 8px;
+    width: clamp(150px, 14vw, 260px);
 }
 
-.side-bar a img {
-    width: 20%;
-    height: auto;
-    cursor: pointer;
-    margin-right: 5px;
-    border-radius: 5px;
+.side-bar.pinned {
+    position: absolute;
 }
 
 .side-bar a {
     display: flex;
-    align-items: center;   
-    gap: 1.5%; /* Restored original spacing values */            
-    text-decoration: none; 
-    color: inherit;
-    padding-right: 10%; 
-    max-width: 70%;  
-    padding-left: 5%;
-    padding-top: 4px; /* Shrank inner vertical padding for compact height */
-    padding-bottom: 4px;
-    transition: transform 0.2s, box-shadow 0.2s;
+    align-items: center;
+    gap: 8px;
+    width: fit-content;
+    max-width: 100%;
+    padding: 4px 10px;
     border-radius: 5px;
-    font-size: 14px; /* Tighter typography footprint */
+    font-size: 14px;
+    color: inherit;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .side-bar a:hover {
-    transform: translateY(-1px); /* Lowered bounce effect */
+    transform: translateY(-1px);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.side-bar a img {
+    width: clamp(24px, 2vw, 36px);
+    height: auto;
+    border-radius: 5px;
 }
 
 .side-bar img[src$="fake-ad1.gif"] {
-    width: 100%;       
-    max-width: 70%;  
-    height: auto;      
+    width: 100%;
+    height: auto;
+    margin-top: 15px;
     border-radius: 5px;
-    margin-top: 15px; /* Scaled down static top tracking distance */
 }
 
-button#theme-toggle {
-    margin-top: 8px; /* Tighter element pairing placement */
-    width: 100%;          
-    max-width: 70%;     
-    height: 30px; /* Slimmer button thickness */
-    cursor: pointer;
-    background-color: #0066cc;
-    color: white;
+#theme-toggle {
+    width: 100%;
+    height: 30px;
+    margin-top: 8px;
+    margin-bottom: 5%;
     border: none;
     border-radius: 5px;
-    font-weight: bold;
+    background-color: var(--accent);
+    color: #ffffff;
     font-size: 13px;
-    transition: background-color 0.3s, color 0.3s, transform 0.2s, box-shadow 0.2s;
-    padding-right: 10px; 
-    margin-bottom: 5%;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
 }
 
-button#theme-toggle:hover {
-    transform: translateY(-1px); /* Lowered bounce effect */
+#theme-toggle:hover {
+    transform: translateY(-1px);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    background-color: #0052a3;
+    background-color: var(--accent-hover);
 }
 
-body.dark .side-bar a,
-body.dark .soc-box {
-    color: #000000;        
-    border-color: #000000; 
-}
-
-body.dark .side-bar a:hover,
-body.dark button#theme-toggle:hover {
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-/* ==========================================socials now ======================================================================================================*/
 .soc-box {
-    text-align: center;
-    width: 42%; /* Perfectly matches the column wrapper of all lower content grids */
-    border: 1.5px solid rgb(255, 255, 255);
+    width: var(--col);
+    margin: 0 auto;
+    padding: 6px 15px;
+    border: 1.5px solid var(--text);
     border-radius: 5px;
-    margin: 0 auto; /* Centers the content cleanly in the middle */
-    background: rgba(255, 255, 255, 0.05);
-    padding: 6px 15px; /* Shrank top and bottom padding to fix the overly tall border height */
-    box-sizing: border-box;
-}
-
-body.dark .soc-box {
-    background: rgba(0, 0, 0, 0.05);
-}
-
-#socials,
-#back {
+    background: var(--surface);
     text-align: center;
 }
 
-#socials ul,
-#back ul { 
-    list-style: none;
-    padding: 0;
-    margin: 0; /* Stripped default margins causing layout to stretch too high */
+#socials ul {
     display: flex;
-    justify-content: center;   
-    gap: 1rem; 
-    flex-wrap: wrap; 
-}
-
-#socials li {
-    display: inline;         
-    position: relative;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.25rem 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 #socials li:not(:last-child)::after {
-    content: "|";            
-    margin-left: 0.5rem;       
-    color: #0066cc;          
+    content: "|";
+    margin-left: 0.5rem;
+    color: var(--link);
 }
 
 #socials a,
-#back a,
 #achievements a,
 #projects a,
 .cert-box li a {
+    color: var(--link);
+    font-size: clamp(0.8rem, 1.5vw, 1rem);
     text-decoration: none;
-    color: #0066cc;
     transition: color 0.3s;
-    font-size: clamp(0.8rem, 1.5vw, 1rem); 
-}
-
-body.dark #socials a,
-body.dark #back a,
-body.dark #achievements a,
-body.dark #projects a,
-body.dark .cert-box li a {
-    color: #0052a3;
 }
 
 #socials a:hover,
-#back a:hover,
 #achievements a:hover,
 #projects a:hover,
 .cert-box li a:hover {
-    color: #00a3ff;
+    color: var(--link-hover);
 }
 
-/* ==========================================achievement========================================================================*/
 .achieve-box,
-#achievements {
+.cert-box,
+.proj-box {
     text-align: center;
+}
+
+.proj-box {
+    position: relative;
+    z-index: 10;
 }
 
 .achieve-box ul,
-#achievements ul {
+.proj-box ul {
     display: grid;
-    grid-template-columns: 1fr; 
-    justify-content: center;
-    list-style: none;
-    padding: 0;
+    grid-template-columns: 1fr;
+    gap: 25px;
+    max-width: var(--col);
     margin: 0 auto;
-    max-width: 42%; 
-    gap: 25px; 
+    padding: 0;
+    list-style: none;
 }
 
-.achieve-box li,
-#achievements li {
-    text-align: center;
+.proj-box li {
+    font-size: 17px;
 }
 
 .achieve-box li img,
-#achievements li img {
+.proj-box li img {
     width: 100%;
-    max-width: 100%; 
     height: auto;
     border-radius: 10px;
 }
 
-/* ==========================================certification ===============================================================================================*/
-.cert-box {
-    text-align: center;       
-}
-
 .cert-box h2 {
     margin-bottom: 20px;
-    transition: color 0.3s;
-}
-
-body.dark .cert-box h2 {
-    color: #000000;
 }
 
 .cert-box .portfolio-card {
-    max-width: 42%;
+    max-width: var(--col);
     margin: 0 auto;
-    padding: 20px; /* Adds internal safe-zone so items don't clip the outer card boundary */
+    padding: 20px;
 }
 
-.cert-box ul { 
+.cert-box ul {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); /* Auto-wraps long badge item grids neatly */
-    gap: 15px; 
-    justify-content: center;                  
-    list-style: none;
-    padding: 0;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
     margin: 0 auto;
-    width: 100%; /* Spans correctly within the parent container card framework */
+    padding: 0;
+    list-style: none;
 }
 
 .cert-box li {
-    text-align: center;
     display: flex;
     flex-direction: column;
-    align-items: center;          
-    font-size: 13px; 
+    align-items: center;
+    font-size: 13px;
 }
 
 .cert-box li img {
     width: 100%;
-    max-width: 140px; 
+    max-width: 140px;
     height: auto;
     border-radius: 8px;
 }
@@ -364,128 +332,174 @@ body.dark .cert-box h2 {
     display: block;
     width: 100%;
     max-width: 140px;
-    text-align: center;
-    text-decoration: none;
     margin-top: 5px;
-}
-
-/* ==========================================projects ======================================================================================================*/
-.proj-box,
-#projects {
     text-align: center;
-    position: relative;
-    z-index: 10;
 }
 
-.proj-box ul,
-#projects ul {
-    display: grid;
-    grid-template-columns: 1fr; /* Changed to single column stack to fit inside 42% border width without compacting */
-    gap: 25px;
-    max-width: 42%; /* Kept layout nested within the center column bounds */
-    margin: 0 auto;
-    padding: 0;
-    list-style: none;
-}
-
-.proj-box li,
-#projects li {
-    text-align: center;
-    font-size: 17px;
-}
-
-.proj-box li img,
-#projects li img {
-    width: 100%;
-    max-width: 100%; 
-    height: auto;
-    border-radius: 10px;
-}
-
-/* ===============================footer layout details ============================================*/
-footer {
-    text-align: center;
-    padding: 20px;
-    background: #333;
-    color: #fff;
-    width: 100%;
-    box-sizing: border-box; /* Fixed issue: ensures padding doesn't overflow full width background layout */
-    position: relative;
-    z-index: 10;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-body.dark footer {
-    background: #e0e0e0;
-    color: #222;
-}
-
-/* ================= UNIFIED PORTFOLIO CARD LAYOUT EFFECTS ================= */
 .portfolio-card {
-    background: rgba(255, 255, 255, 0.05);
+    position: relative;
+    z-index: 10;
     padding: 15px;
     border-radius: 12px;
+    background: var(--surface);
     transition: transform 0.2s, box-shadow 0.2s;
-    position: relative;
-    z-index: 10;
-    box-sizing: border-box;
-}
-
-body.dark .portfolio-card {
-    background: rgba(0, 0, 0, 0.05);
 }
 
 .portfolio-card:hover {
-    transform: translateY(-2px); /* Lowered bounce effect */
+    transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .portfolio-card h3 {
-    font-size: 16px;
     margin-bottom: 10px;
+    font-size: 16px;
 }
 
 .portfolio-card img {
     width: 100%;
     border-radius: 8px;
     cursor: pointer;
-    transition: transform 0.2s;
 }
 
-/* ==========================================mobile media breaks ========================================================================= */
-@media screen and (max-width: 768px) {
-    .side-bar {
-        position: relative !important;
-        top: 0 !important;
-        left: 2% !important;
-        width: 30% !important;
-        gap: 12px;
+footer {
+    position: relative;
+    z-index: 10;
+    width: auto;
+    margin: 0 -5px -5px calc(var(--pad-left) * -1);
+    padding: 20px;
+    background: var(--footer-bg);
+    color: var(--footer-text);
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+@media (max-width: 1100px) {
+    :root {
+        --col: 70%;
+    }
+
+    .side-bar,
+    .side-bar.pinned {
+        position: static;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 10px 15px;
+        width: auto;
+        padding: 10px;
+    }
+
+    .side-bar img[src$="fake-ad1.gif"] {
+        width: 200px;
+        margin-top: 0;
+    }
+
+    #theme-toggle {
+        width: auto;
+        margin: 0;
+        padding: 0 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --col: 90%;
+        --pad-left: 56px;
+    }
+
+    .side-bar,
+    .side-bar.pinned {
+        position: fixed;
+        top: 5%;
+        left: 4px;
+        right: auto;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 8px;
+        width: 44px;
+        max-height: 90vh;
+        padding: 0;
+        overflow-y: auto;
+        scrollbar-width: none;
+    }
+
+    .side-bar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .side-bar a {
+        gap: 0;
+        padding: 4px;
+        font-size: 0;
+    }
+
+    .side-bar a img {
+        width: 32px;
+    }
+
+    .side-bar.pinned {
+        position: absolute;
+    }
+
+    .side-bar img[src$="fake-ad1.gif"] {
+        display: none;
+    }
+
+    #theme-toggle {
+        width: 100%;
+        height: auto;
+        padding: 6px 2px;
+        font-size: 10px;
+        line-height: 1.1;
+    }
+
+    h2 {
+        font-size: 22px;
     }
 
     .side-bar a:hover,
-    button#theme-toggle:hover {
+    #theme-toggle:hover,
+    .portfolio-card:hover {
         transform: none;
         box-shadow: none;
     }
 
-    .middle-strip {
-        width: 70%;
-    }
-
-    .soc-box {
-        width: 80%;
-    }
-
     .cert-box .portfolio-card {
-        max-width: 95%;
+        padding: 12px;
     }
 
-    .achieve-box ul,
-    #achievements ul,
-    .proj-box ul,
-    #projects ul,
+    #welcome-box {
+        padding: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --col: 96%;
+    }
+
+    .proj-box li {
+        font-size: 15px;
+    }
+
     .cert-box ul {
-        max-width: 95%;
-        grid-template-columns: 1fr; 
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) and (orientation: portrait) {
+    #side-img {
+        right: -20vw;
+        width: 500vw;
+    }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+    #side-img {
+        right: -10vw;
+        width: 70vw;
     }
 }

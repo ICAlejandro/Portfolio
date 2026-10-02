@@ -499,7 +499,7 @@ footer {
 
 @media (max-height: 500px) and (orientation: landscape) {
     #side-img {
-        right: -10vw;
+        right: -20vw;
         width: 70vw;
     }
 }

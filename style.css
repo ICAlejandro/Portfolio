@@ -151,8 +151,8 @@ header {
 .side-bar {
     position: fixed;
     top: 5%;
-    left: 2%;
-    right: auto;
+    left: auto;
+    right: calc(50% + var(--col) / 2 + 50px);
     z-index: 998;
     display: flex;
     flex-direction: column;

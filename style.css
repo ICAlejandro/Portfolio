@@ -132,6 +132,8 @@ header {
     height: auto;
     transform: translateY(-50%);
     pointer-events: none;
+    animation: idle-float 3s ease-in-out infinite;
+    will-change: translate, rotate;
 }
 
 #break-img {
@@ -372,6 +374,19 @@ footer {
     color: var(--footer-text);
     text-align: center;
     transition: background-color 0.3s, color 0.3s;
+}
+
+@keyframes idle-float {
+    0%,
+    100% {
+        translate: 0 0;
+        rotate: 0deg;
+    }
+
+    50% {
+        translate: 0 -0.3vh;
+        rotate: 0.2deg;
+    }
 }
 
 @media (max-width: 1100px) {

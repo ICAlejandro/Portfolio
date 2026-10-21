@@ -130,10 +130,10 @@ header {
     z-index: -2;
     width: 55vw;
     height: auto;
-    transform: translateY(-50%);
+    transform: translateY(calc(-50% + var(--parallax, 0vh)));
     pointer-events: none;
     animation: idle-float 3s ease-in-out infinite;
-    will-change: translate, rotate;
+    will-change: transform, translate, rotate;
 }
 
 #break-img {
